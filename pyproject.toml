@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-bouncer"
+version = "0.1.0"
+description = "Second line of defence for Django behind a CDN: IP bans, WAF signatures, bot classification, honeypots and rate limits — with false-ban safety built in."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Ahmet Faruk Şahin" }]
+keywords = [
+    "django", "security", "waf", "rate-limit", "ip-ban", "bot-detection",
+    "honeypot", "middleware", "cloudflare", "owasp",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "Framework :: Django :: 5.2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Security",
+    "Natural Language :: English",
+    "Natural Language :: Turkish",
+]
+dependencies = ["Django>=4.2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "pytest-django>=4.7", "ruff>=0.5"]
+
+[project.urls]
+Homepage = "https://github.com/ahmet6141/django-bouncer"
+Source = "https://github.com/ahmet6141/django-bouncer"
+Issues = "https://github.com/ahmet6141/django-bouncer/issues"
+Changelog = "https://github.com/ahmet6141/django-bouncer/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+include = ["django_bouncer*"]
+
+[tool.setuptools.package-data]
+django_bouncer = ["templates/django_bouncer/*.html", "locale/*/LC_MESSAGES/*.po", "locale/*/LC_MESSAGES/*.mo"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+python_files = ["test_*.py"]
+addopts = "-q --tb=short --strict-markers"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4"]
+ignore = ["E501"]

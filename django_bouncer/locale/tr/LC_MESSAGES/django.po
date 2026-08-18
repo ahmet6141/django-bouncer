@@ -1,0 +1,149 @@
+# django-bouncer — Turkish translation.
+# Copyright (C) django-bouncer contributors
+# Distributed under the same MIT licence as django-bouncer.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: django-bouncer 0.1.0/n"
+"Report-Msgid-Bugs-To: /n"
+"POT-Creation-Date: 2026-08-18 16:01+0300/n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE/n"
+"Last-Translator: django-bouncer contributors/n"
+"Language-Team: Turkish/n"
+"Language: tr/n"
+"MIME-Version: 1.0/n"
+"Content-Type: text/plain; charset=UTF-8/n"
+"Content-Transfer-Encoding: 8bit/n"
+"Plural-Forms: nplurals=2; plural=(n != 1);/n"
+
+#: ./admin.py:36
+msgid "severity"
+msgstr "önem"
+
+#: ./admin.py:44
+msgid "path"
+msgstr "yol"
+
+#: ./admin.py:65
+msgid "active"
+msgstr "aktif"
+
+#: ./admin.py:71
+msgid "Lift the ban on the selected addresses"
+msgstr "Seçili adreslerin yasağını kaldır"
+
+#: ./admin.py:79
+#, python-format
+msgid "%(count)d ban lifted."
+msgid_plural "%(count)d bans lifted."
+msgstr[0] "%(count)d yasak kaldırıldı."
+msgstr[1] "%(count)d yasak kaldırıldı."
+
+#: ./admin.py:85
+msgid "Lift the ban and trust the address for 30 days (bypasses every layer)"
+msgstr "Yasağı kaldır ve adresi 30 gün güvenilir yap (tüm katmanları atlar)"
+
+#: ./admin.py:96
+#, python-format
+msgid "%(count)d address(es): ban lifted, trusted for 30 days."
+msgstr "%(count)d adres: yasak kaldırıldı, 30 gün güvenilir."
+
+#: ./admin.py:100
+msgid "Make the ban permanent"
+msgstr "Yasağı kalıcı yap"
+
+#: ./admin.py:110
+#, python-format
+msgid "%(count)d address(es) banned permanently."
+msgstr "%(count)d adres kalıcı olarak yasaklandı."
+
+#: ./apps.py:9
+msgid "Bouncer (security & WAF)"
+msgstr "Bouncer (güvenlik & WAF)"
+
+#: ./middleware/_helpers.py:479
+msgid "This request was rejected by the security policy."
+msgstr "Bu istek güvenlik politikası tarafından reddedildi."
+
+#: ./middleware/_helpers.py:489
+#, python-format
+msgid ""
+"If you administer this site, <a href='%(url)s'>sign in</a>: the ban on the "
+"address you sign in from is lifted automatically."
+msgstr "Bu sitenin yöneticisiyseniz <a href='%(url)s'>giriş yapın</a>: giriş yaptığınız adresin yasağı otomatik olarak kalkar."
+
+#: ./middleware/_helpers.py:498
+#, python-format
+msgid ""
+"If you believe this is a mistake, please <a href='%(url)s'>contact us</a>."
+msgstr "Bir yanlışlık olduğunu düşünüyorsanız lütfen <a href='%(url)s'>bize ulaşın</a>."
+
+#: ./middleware/_helpers.py:508
+msgid "Your request was rejected by the security policy."
+msgstr "İsteğiniz güvenlik politikası tarafından reddedildi."
+
+#: ./middleware/_helpers.py:511
+msgid "This address is temporarily blocked."
+msgstr "Bu adres geçici olarak engellendi."
+
+#: ./middleware/_helpers.py:533
+msgid "You have sent too many requests."
+msgstr "Çok fazla istek gönderdiniz."
+
+#: ./middleware/_helpers.py:546
+#, python-format
+msgid "Please try again in <strong>%(seconds)s</strong> seconds."
+msgstr "Lütfen <strong>%(seconds)s</strong> saniye sonra tekrar deneyin."
+
+#: ./middleware/rate_limit.py:120
+msgid "Too many failed sign-in attempts. Please wait before retrying."
+msgstr "Çok fazla başarısız giriş denemesi. Lütfen bir süre bekleyin."
+
+#: ./models.py:35
+msgid "low"
+msgstr "düşük"
+
+#: ./models.py:36
+msgid "medium"
+msgstr "orta"
+
+#: ./models.py:37
+msgid "high"
+msgstr "yüksek"
+
+#: ./models.py:38
+msgid "critical"
+msgstr "kritik"
+
+#: ./models.py:86
+msgid "The fragment that matched, taken from the URL or body (max 500 chars)."
+msgstr "Eşleşen parça; URL veya gövdeden alınır (en fazla 500 karakter)."
+
+#: ./models.py:90
+msgid "True when the request was rejected; False when it was only logged."
+msgstr "İstek reddedildiyse True; yalnızca kaydedildiyse False."
+
+#: ./models.py:102
+msgid "security event"
+msgstr "güvenlik olayı"
+
+#: ./models.py:103
+msgid "security events"
+msgstr "güvenlik olayları"
+
+#: ./models.py:129
+msgid "Empty together with permanent means forever; otherwise the deadline."
+msgstr "Kalıcı ile birlikte boş bırakılırsa süresizdir; aksi halde bitiş zamanıdır."
+
+#: ./models.py:137
+msgid "banned IP"
+msgstr "yasaklı IP"
+
+#: ./models.py:138
+msgid "banned IPs"
+msgstr "yasaklı IP'ler"
+
+#: ./models.py:150
+msgid "Unspecified addresses cannot be banned."
+msgstr "Belirsiz adresler yasaklanamaz."

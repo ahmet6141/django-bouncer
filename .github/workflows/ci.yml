@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: py${{ matrix.python-version }} / django ${{ matrix.django }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+        django: ["4.2", "5.1", "5.2"]
+        exclude:
+          # Django 4.2 does not support Python 3.13.
+          - python-version: "3.13"
+            django: "4.2"
+          # Django 5.1+ requires Python 3.10+, which every entry already is.
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install "Django~=${{ matrix.django }}.0" pytest pytest-django
+          pip install -e .
+
+      - name: Test
+        run: pytest -q
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ruff
+      - run: ruff check .
+
+  checks:
+    name: django system checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: makemigrations --check
+        run: python -m django makemigrations django_bouncer --check --dry-run --settings=tests.settings
+      - name: check --deploy
+        run: python -m django check --deploy --settings=tests.settings --fail-level ERROR

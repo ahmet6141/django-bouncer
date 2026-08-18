@@ -1,0 +1,7 @@
+{# Honeypot field: hidden with CSS, so a person never sees or fills it. #}
+{# A bot that fills it gets a 403 from HoneypotMiddleware — and never a ban, #}
+{# because autofill and shared addresses make this unsafe as a site-wide signal. #}
+<div class="bouncer-hp" aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+  <label for="id_{{ field_name }}">Website</label>
+  <input type="text" id="id_{{ field_name }}" name="{{ field_name }}" tabindex="-1" autocomplete="off" value="">
+</div>
