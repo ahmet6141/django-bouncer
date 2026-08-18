@@ -53,6 +53,9 @@ django_bouncer = ["templates/django_bouncer/*.html", "locale/*/LC_MESSAGES/*.po"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "tests.settings"
+# The test project lives in this repository rather than being installed, so the
+# repository root has to be importable before pytest-django loads the settings.
+pythonpath = ["."]
 python_files = ["test_*.py"]
 addopts = "-q --tb=short --strict-markers"
 testpaths = ["tests"]
